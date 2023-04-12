@@ -5,7 +5,7 @@
   ],
   "functions": {
     "api": {
-      "handler": "my_url_shortener.wsgi.handler",
+      "handler": "./url_shortener.wsgi.handler",
       "memory": 1024,
       "maxDuration": 10,
       "runtime": "python3.8"
