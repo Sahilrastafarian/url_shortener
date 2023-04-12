@@ -1,14 +1,14 @@
 {
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "my_url_shortener/wsgi.py"
-        }
-    ],
-    "functions": {
-        "my_url_shortener/wsgi.py": {
-            "memory": 1024,
-            "maxDuration": 10
-        }
+  "version": 2,
+  "routes": [
+    { "src": "/(.*)", "dest": "/api/index.handler" }
+  ],
+  "functions": {
+    "api": {
+      "handler": "./wsgi.handler",
+      "memory": 1024,
+      "maxDuration": 10,
+      "runtime": "python3.8"
     }
+  }
 }

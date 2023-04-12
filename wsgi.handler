@@ -1,0 +1,5 @@
+from serverless_wsgi import handle_request
+from my_url_shortener.wsgi import application
+
+def handler(event, context):
+    return handle_request(application, event, context)
