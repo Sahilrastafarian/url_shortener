@@ -1,5 +1,16 @@
-from serverless_wsgi import handle_request
-from my_url_shortener.wsgi import application
+import os
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_url_shortener.settings")
+
+application = get_wsgi_application()
 
 def handler(event, context):
-    return handle_request(application, event, context)
+    response = application(event, context)
+    return {
+        "statusCode": 200,
+        "headers": {
+            "content-type": "text/html",
+        },
+        "body": response.content.decode(),
+    }
