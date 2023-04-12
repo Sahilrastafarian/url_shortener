@@ -6,7 +6,7 @@
       "runtime": "vercel-python@0.5.0",
       "entrypoint": "wsgi.handler",
       "env": {
-        "DJANGO_SETTINGS_MODULE": "my_url_shortener.settings"
+        "DJANGO_SETTINGS_MODULE": "url_shortener.settings"
       }
     }
   },
