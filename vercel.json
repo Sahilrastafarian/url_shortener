@@ -1,20 +1,16 @@
 {
-  "functions": {
-    "api": {
-      "memory": 512,
-      "maxDuration": 10,
-      "runtime": "vercel-python@0.5.0",
-      "entrypoint": "wsgi.handler",
-      "env": {
-        "DJANGO_SETTINGS_MODULE": "url_shortener.settings"
-      }
-    }
-  },
-  "routes": [
+  "version": 2,
+  "builds": [
     {
-      "src": "/api/(.*)",
-      "dest": "api"
+      "src": "manage.py",
+      "use": "@vercel/python"
     }
-  ]
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/manage.py" }
+  ],
+  "env": {
+    "PYTHONUNBUFFERED": "true",
+    "DJANGO_SETTINGS_MODULE": "my_url_shortener.settings"
+  }
 }
-
